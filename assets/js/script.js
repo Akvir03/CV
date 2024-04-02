@@ -157,3 +157,37 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Empêche la soumission classique du formulaire
+
+  const formData = new FormData(this); // Récupère les données du formulaire
+
+  fetch('https://formspree.io/f/xgegndjj', { // Remplacez par votre URL Formspree
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json' // S'assure que Formspree répond avec du JSON
+    },
+  }).then(response => {
+    if (response.ok) {
+      // Affiche une alerte ou modifiez pour afficher une pop-up plus stylisée
+      alert("Merci, votre message a été envoyé.");
+      // Réinitialisez le formulaire après l'envoi
+      document.getElementById('contactForm').reset();
+    } else {
+      // Gère l'erreur si la réponse n'est pas ok
+      response.json().then(data => {
+        if (data.errors) {
+          // Affiche la première erreur rencontrée
+          alert(data.errors[0]);
+        } else {
+          alert("Quelque chose s'est mal passé. Veuillez réessayer.");
+        }
+      });
+    }
+  }).catch(error => {
+    // Gère les erreurs de réseau (si la requête n'atteint pas Formspree)
+    console.error('Erreur:', error);
+    alert("Erreur de réseau. Veuillez vérifier votre connexion.");
+  });
+});

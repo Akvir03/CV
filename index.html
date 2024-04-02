@@ -171,6 +171,9 @@
             </a>
           </li>
 
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
 
         </ul>
 
@@ -267,7 +270,7 @@
 
             <div class="modal-img-wrapper">
               <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                <img src="./assets/images/avatar-1.png" alt="Devienne Nathan" width="80" data-modal-img>
               </figure>
 
               <img src="./assets/images/icon-quote.svg" alt="quote icon">
@@ -275,17 +278,13 @@
 
             <div class="modal-content">
 
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+              <h4 class="h3 modal-title" data-modal-title>Devienne Nathan</h4>
 
-              <time datetime="2021-06-14">14 June, 2021</time>
+              <time datetime="2024-04-02">02 April, 2024</time>
 
               <div data-modal-text>
                 <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+
                 </p>
               </div>
 
@@ -612,6 +611,38 @@
 
       </article>
 
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40215.636089378815!2d1.827696124957823!3d50.951879822762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dc3f75d7f1e363%3A0xacbed9e08cd279f4!2sCalais!5e0!3m2!1sfr!2sfr!4v1712066355026!5m2!1sfr!2sfr"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+          <h3 class="h3 form-title">Formulaire de Contact</h3>
+          <form id="contactForm" class="form" action="https://formspree.io/f/xgegndjj" method="POST" data-form>
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Nom complet" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Adresse e-mail" required data-form-input>
+            </div>
+            <textarea name="message" class="form-input" placeholder="Votre message" required data-form-input></textarea>
+            <button class="form-btn" type="submit" id="submitBtn" data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Envoyer le message</span>
+            </button>
+          </form>
+        </section>
+
+
+      </article>
 
     </div>
 

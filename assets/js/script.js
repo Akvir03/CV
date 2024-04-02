@@ -191,3 +191,20 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     alert("Erreur de réseau. Veuillez vérifier votre connexion.");
   });
 });
+const btn = document.querySelector('.info_more-btn');
+
+
+btn.addEventListener('click', function () {
+
+  const span = this.querySelector('span');
+  const icon = this.querySelector('ion-icon');
+
+
+  if (span.textContent === "Voir plus") {
+    span.textContent = "Voir moins";
+    icon.name = "chevron-up";
+  } else {
+    span.textContent = "Voir plus";
+    icon.name = "chevron-down";
+  }
+});

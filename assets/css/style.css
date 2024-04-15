@@ -86,6 +86,13 @@
 
 }
 
+/* 
+Début--------------------Zone de test
+*/
+
+/* 
+Fin-----------------------Zone de test
+*/
 *,
 *::before,
 *::after {
@@ -486,10 +493,6 @@ main {
 .social-item .social-link:hover {
   color: var(--light-gray);
 }
-
-
-
-
 
 /*-----------------------------------*\
   #NAVBAR

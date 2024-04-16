@@ -1,11 +1,16 @@
 'use strict';
 
+function downloadCV() {
+  const fileUrl = '../images/CV.pdf';
 
+  const downloadLink = document.createElement('a');
+  downloadLink.href = fileUrl;
+  downloadLink.download = 'CV_DEVIENNE_Nathan.pdf';
+  downloadLink.click();
+}
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
 
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
@@ -13,8 +18,6 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
 
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
@@ -52,8 +55,6 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 // add click event to modal close button
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
-
-
 
 // custom select variables
 const select = document.querySelector("[data-select]");
@@ -113,8 +114,6 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 }
 
-
-
 // contact form variables
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
@@ -133,8 +132,6 @@ for (let i = 0; i < formInputs.length; i++) {
 
   });
 }
-
-
 
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
@@ -157,48 +154,50 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// Google Translate script
 document.getElementById('contactForm').addEventListener('submit', function (event) {
-  event.preventDefault(); // Empêche la soumission classique du formulaire
+  event.preventDefault(); // Prevents the default form submission
 
-  const formData = new FormData(this); // Récupère les données du formulaire
+  const formData = new FormData(this); // Get the form data
 
-  fetch('https://formspree.io/f/xgegndjj', { // Remplacez par votre URL Formspree
+  fetch('https://formspree.io/f/xgegndjj', { // Replace this with your Formspree URL
     method: 'POST',
     body: formData,
     headers: {
-      'Accept': 'application/json' // S'assure que Formspree répond avec du JSON
+      'Accept': 'application/json' // Ensures Formspree responds with JSON
     },
   }).then(response => {
     if (response.ok) {
-      // Affiche une alerte ou modifiez pour afficher une pop-up plus stylisée
-      alert("Merci, votre message a été envoyé.");
-      // Réinitialisez le formulaire après l'envoi
+      // Display an alert or customize to display a more stylized popup
+      alert("Thank you, your message has been sent.");
+      // Reset the form after submission
       document.getElementById('contactForm').reset();
     } else {
-      // Gère l'erreur si la réponse n'est pas ok
+      // Handle error if response is not ok
       response.json().then(data => {
         if (data.errors) {
-          // Affiche la première erreur rencontrée
+          // Display the first encountered error
           alert(data.errors[0]);
         } else {
-          alert("Quelque chose s'est mal passé. Veuillez réessayer.");
+          alert("Something went wrong. Please try again.");
         }
       });
     }
   }).catch(error => {
-    // Gère les erreurs de réseau (si la requête n'atteint pas Formspree)
-    console.error('Erreur:', error);
-    alert("Erreur de réseau. Veuillez vérifier votre connexion.");
+    // Handle network errors (if the request doesn't reach Formspree)
+    console.error('Error:', error);
+    alert("Network error. Please check your connection.");
   });
 });
-const btn = document.querySelector('.info_more-btn');
 
+// Functionality for "Voir plus" button
+const btn = document.querySelector('.info_more-btn');
 
 btn.addEventListener('click', function () {
 
   const span = this.querySelector('span');
   const icon = this.querySelector('ion-icon');
-
 
   if (span.textContent === "Voir plus") {
     span.textContent = "Voir moins";

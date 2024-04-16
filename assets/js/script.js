@@ -1,14 +1,5 @@
 'use strict';
 
-function downloadCV() {
-  const fileUrl = '../images/CV.pdf';
-
-  const downloadLink = document.createElement('a');
-  downloadLink.href = fileUrl;
-  downloadLink.download = 'CV_DEVIENNE_Nathan.pdf';
-  downloadLink.click();
-}
-
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 

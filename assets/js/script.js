@@ -152,7 +152,7 @@ document.getElementById('contactForm').addEventListener('submit', function (even
 
   const formData = new FormData(this); // Get the form data
 
-  fetch('https://formspree.io/f/xgegndjj', { // Replace this with your Formspree URL
+  fetch('https://formspree.io/f/mwpnzyyy', { // Replace this with your Formspree URL
     method: 'POST',
     body: formData,
     headers: {
@@ -161,7 +161,7 @@ document.getElementById('contactForm').addEventListener('submit', function (even
   }).then(response => {
     if (response.ok) {
       // Display an alert or customize to display a more stylized popup
-      alert("Thank you, your message has been sent.");
+      alert("Merci, votre message a été envoyé.");
       // Reset the form after submission
       document.getElementById('contactForm').reset();
     } else {
@@ -171,14 +171,14 @@ document.getElementById('contactForm').addEventListener('submit', function (even
           // Display the first encountered error
           alert(data.errors[0]);
         } else {
-          alert("Something went wrong. Please try again.");
+          alert("Erreur, veuillez ré-essayer");
         }
       });
     }
   }).catch(error => {
     // Handle network errors (if the request doesn't reach Formspree)
     console.error('Error:', error);
-    alert("Network error. Please check your connection.");
+    alert("Erreur internet, vérifiez votre connexion");
   });
 });
 
